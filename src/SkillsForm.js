@@ -9,8 +9,8 @@ class SkillsForm extends Component{
         super(props);
 
         this.state={
-            availableSkills:["hi", "bye"],
-            selectedSkills:["bye"]};
+            availableSkills:[{id:1, name:"hi"}, {id:2, name:"bye"}],
+            selectedSkills:[{id:2, name:"bye"}]};
 
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -18,12 +18,19 @@ class SkillsForm extends Component{
 
     handleChange(key) {
         let currState = this.state;
-console.log("Hello: "+key);
+        let currSelSkills = currState.selectedSkills;
+
+        let skillIndex = currSelSkills.indexOf(key);
+        if (skillIndex === -1){
+            currSelSkills.append(key);
+        }else {
+            currSelSkills.splice(skillIndex,1);
+        }
+
         this.setState(currState);
     }
 
     handleSubmit(event) {
-        // alert('A name was submitted: ' + this.state.value);
         event.preventDefault();
     }
 
