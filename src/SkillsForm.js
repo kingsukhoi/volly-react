@@ -40,10 +40,10 @@ class SkillsForm extends Component{
         const Renderskills= ({skills}) => (
             <div>
                 {skills.map(skill=> (
-                    <div className="skill" key={skill}>
+                    <div className="skill" key={skill.id}>
                         <label>
-                            <input onClick={this.handleChange.bind(this, skill)} type="checkbox" name="skills" value="{skill}"/>
-                            {skill}
+                            <input onClick={this.handleChange.bind(this, skill)} type="checkbox" name="skills" value="{skill.name}"/>
+                            {skill.name}
                         </label>
                     </div>
                 ))}
