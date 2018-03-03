@@ -16,15 +16,14 @@ class SkillsForm extends Component{
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    handleChange(event) {
+    handleChange(key) {
         let currState = this.state;
-
-
+console.log("Hello: "+key);
         this.setState(currState);
     }
 
-    handleSubmit(event, key) {
-        alert('A name was submitted: ' + this.state.value);
+    handleSubmit(event) {
+        // alert('A name was submitted: ' + this.state.value);
         event.preventDefault();
     }
 
@@ -34,10 +33,12 @@ class SkillsForm extends Component{
         const Renderskills= ({skills}) => (
             <div>
                 {skills.map(skill=> (
-                    <div className="skill" key={skill}>{skill}
-
+                    <div className="skill" key={skill}>
+                        <label>
+                            <input onClick={this.handleChange.bind(this, skill)} type="checkbox" name="skills" value="{skill}"/>
+                            {skill}
+                        </label>
                     </div>
-
                 ))}
             </div>
         );
