@@ -23,21 +23,21 @@ class SkillsForm extends Component{
         event.preventDefault();
     }
 
-    renderSkills(){
-        let skills = this.state.availableSkills.map((skill)=>{
-            const currSkill = skill;
-            renderSkill(currSkill);
 
-        });
-
-        return skills;
-    }
 
     render(){
+        const Renderskills= ({skills}) => (
+            <div>
+                {skills.map(skill=> (
+                    <div className="skill" key={skill}>{skill}</div>
+                ))}
+            </div>
+        );
+
         return(
             <form onSubmit={this.handleSubmit}>
 
-                <renderSkills/>
+                <Renderskills skills={this.state.availableSkills}/>
 
                 <input type="submit" value="Submit" />
             </form>
@@ -46,14 +46,3 @@ class SkillsForm extends Component{
 }
 
 export default SkillsForm;
-
-function renderSkill(props) {
-
-    return (
-        <label>
-            Name:
-            <input type="text" value={props.skill} onChange={props.onchange} />
-        </label>
-
-);
-}
