@@ -8,14 +8,19 @@ class SkillsForm extends Component{
     constructor(props){
         super(props);
 
-        this.state={availableSkills:["hi", "bye"]};
+        this.state={
+            availableSkills:["hi", "bye"],
+            selectedSkills:["bye"]};
 
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     handleChange(event) {
-        this.setState({value: event.target.value});
+        let currState = this.state;
+
+
+        this.setState(currState);
     }
 
     handleSubmit(event) {
