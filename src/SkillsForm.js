@@ -23,7 +23,7 @@ class SkillsForm extends Component{
         this.setState(currState);
     }
 
-    handleSubmit(event) {
+    handleSubmit(event, key) {
         alert('A name was submitted: ' + this.state.value);
         event.preventDefault();
     }
@@ -34,7 +34,10 @@ class SkillsForm extends Component{
         const Renderskills= ({skills}) => (
             <div>
                 {skills.map(skill=> (
-                    <div className="skill" key={skill}>{skill}</div>
+                    <div className="skill" key={skill}>{skill}
+
+                    </div>
+
                 ))}
             </div>
         );
